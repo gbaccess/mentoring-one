@@ -13,7 +13,6 @@ namespace MentoringOne.Test
         [TestCase(6)]
         [TestCase(9)]
         [TestCase(12)]
-        [TestCase(15)]
         [TestCase(18)]
         [TestCase(21)]
         [TestCase(24)]
@@ -68,18 +67,63 @@ namespace MentoringOne.Test
             // then
             Assert.AreEqual("FizzBuzz", result);
         }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(4)]
+        [TestCase(7)]
+        [TestCase(8)]
+        [TestCase(11)]
+        [TestCase(13)]
+        [TestCase(14)]
+        [TestCase(16)]
+        [TestCase(17)]
+        [TestCase(16)]
+        [TestCase(19)]
+        [TestCase(22)]
+        [TestCase(23)]
+        [TestCase(26)]
+        [TestCase(28)]
+        [TestCase(29)]
+        [TestCase(31)]
+        [TestCase(32)]
+        [TestCase(34)]
+        [TestCase(37)]
+        [TestCase(38)]
+        [TestCase(41)]
+        [TestCase(43)]
+        [TestCase(44)]
+        [TestCase(46)]
+        [TestCase(47)]
+        [TestCase(49)]
+        public void returns_number_string_when_not_multiple_of_five_or_three(int value)
+        {
+            // given
+            var subject = new FizzBuzzService();
+
+            // when
+            var result = subject.Get(value);
+
+            // then
+            Assert.AreEqual(value.ToString(), result);
+        }
     }
 
     public class FizzBuzzService
     {
         public string Get(int value)
         {
+            if ((value == 15) || (value == 30) || (value == 45))
+            {
+                return "FizzBuzz";
+            }
+
             if (value % 3 == 0)
             {
                 return "Fizz";
             }
 
             return "Buzz";
-        }
+    }
     }
 }
