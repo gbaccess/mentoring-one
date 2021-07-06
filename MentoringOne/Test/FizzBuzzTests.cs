@@ -113,17 +113,25 @@ namespace MentoringOne.Test
     {
         public string Get(int value)
         {
-            if ((value == 15) || (value == 30) || (value == 45))
+            if (DivisbleByThree(value) && DivisbleByFive(value))
             {
                 return "FizzBuzz";
             }
 
-            if (value % 3 == 0)
+            if (DivisbleByThree(value))
             {
                 return "Fizz";
             }
 
-            return "Buzz";
-    }
+            if (DivisbleByFive(value))
+            {
+                return "Buzz";
+            }
+
+            return value.ToString();
+        }
+
+        private bool DivisbleByThree(int value) => value % 3 == 0;
+        private bool DivisbleByFive(int value) => value % 5 == 0;
     }
 }
