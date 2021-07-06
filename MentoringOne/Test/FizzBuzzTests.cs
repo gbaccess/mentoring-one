@@ -9,76 +9,41 @@ namespace MentoringOne.Test
 {
     public class FizzBuzzTests
     {
-        //[TestCase(1, "1")]
-        //[TestCase(2, "2")]
-        //[TestCase(3, "fizz")]
-        //[TestCase(4, "4")]
-        //[TestCase(6, "fizz")]
-        [Test]
-        public void if_number_is_multiple_of_three_prints_fizz()
+        [TestCase(3)]
+        [TestCase(6)]
+        [TestCase(9)]
+        [TestCase(12)]
+        [TestCase(15)]
+        [TestCase(18)]
+        [TestCase(21)]
+        [TestCase(24)]
+        [TestCase(27)]
+        [TestCase(30)]
+        [TestCase(33)]
+        [TestCase(36)]
+        [TestCase(39)]
+        [TestCase(42)]
+        [TestCase(45)]
+        [TestCase(48)]
+        public void returns_fizz(int value)
         {
             // given
-            var subject = new FizzBuzz();
-            for (int num = 0; num < 101; num++)
-            {
-                var divisibleByThree = num % 3 == 0;
-                // when
-                var result = subject.Calculate(num);
+            var subject = new FizzBuzzService();
 
-                // then
-                if (divisibleByThree)
-                {
-                    Assert.AreEqual("fizz", result);
-                }
-                else
-                {
-                    Assert.AreNotEqual("fizz", result);
-                }
+            // when
+            var result = subject.Get(value);
 
-            }
+            // then
+            Assert.AreEqual("Fizz", result);
         }
 
-        [Test]
-        public void if_number_is_divisible_by_five_prints_buzz()
-        {
-            // given
-            var subject = new FizzBuzz();
-            for (int num = 0; num < 101; num++)
-            {
-                var divisibleByFive = num % 5 == 0;
-                // when
-                var result = subject.Calculate(num);
-
-                // then
-                if (divisibleByFive)
-                {
-                    Assert.AreEqual("buzz", result);
-                }
-                else
-                {
-                    Assert.AreNotEqual("buzz", result);
-                }
-            }
-
-        }
     }
 
-    public class FizzBuzz
+    public class FizzBuzzService
     {
-        public string Calculate(int num)
+        public string Get(int value)
         {
-            var divisibleByThree = num % 3 == 0;
-            var divisibleByFive = num % 5 == 0;
-            if (divisibleByThree && !divisibleByFive)
-            {
-                return "fizz";
-            }
-            
-            if (divisibleByFive)
-            {
-                return "buzz";
-            }
-            return num.ToString();
+            throw new NotImplementedException();
         }
     }
 }
