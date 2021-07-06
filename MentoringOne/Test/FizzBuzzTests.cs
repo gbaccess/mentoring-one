@@ -37,13 +37,35 @@ namespace MentoringOne.Test
             Assert.AreEqual("Fizz", result);
         }
 
+        [TestCase(5)]
+        [TestCase(10)]
+        [TestCase(15)]
+        [TestCase(20)]
+        [TestCase(25)]
+        [TestCase(30)]
+        [TestCase(35)]
+        [TestCase(40)]
+        [TestCase(45)]
+        [TestCase(50)]
+        public void returns_buzz(int value)
+        {
+            // given
+            var subject = new FizzBuzzService();
+
+            // when
+            var result = subject.Get(value);
+
+            // then
+            Assert.AreEqual("Buzz", result);
+        }
+
     }
 
     public class FizzBuzzService
     {
         public string Get(int value)
         {
-            throw new NotImplementedException();
+            return "Fizz";
         }
     }
 }
